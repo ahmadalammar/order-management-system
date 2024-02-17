@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    loadbalancer:
+      eager-load:
+        clients: order-service
+    refresh:
+      enabled: false
+    gateway:
+      routes:
+        - id: order-service
+          uri: lb://order-service
+          predicates:
+            - Path=/api/**
+
+server:
+  port: 9999

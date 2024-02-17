@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: customer-service
+  cloud:
+    refresh:
+      enabled: false
+
+server:
+  port: 9901
+  undertow:
+    port: 8002
+
+camel:
+  component:
+    kafka:
+      brokers: localhost:9092
+  service:
+    lra:
+      enabled: true
+      coordinator-url: http://localhost:50000
+      local-participant-url: http://host.docker.internal:${server.undertow.port}/server
