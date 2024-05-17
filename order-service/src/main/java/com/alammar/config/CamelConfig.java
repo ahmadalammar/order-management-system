@@ -1,8 +1,10 @@
 package com.alammar.config;
 
 import org.apache.camel.CamelContext;
+import org.apache.camel.ProducerTemplate;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.impl.DefaultCamelContext;
+import org.apache.camel.impl.engine.DefaultProducerTemplate;
 import org.apache.camel.spi.RestConfiguration;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -37,6 +39,13 @@ public class CamelConfig {
         camelContext.start();
 
         return camelContext;
+    }
+
+    @Bean
+    public ProducerTemplate getProducerTemplate(CamelContext camelContext) {
+        ProducerTemplate producerTemplate = new DefaultProducerTemplate(camelContext);
+        producerTemplate.start();
+        return producerTemplate;
     }
 
 }

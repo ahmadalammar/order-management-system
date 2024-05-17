@@ -6,7 +6,7 @@ spring:
       enabled: false
 
 server:
-  port: 9901
+  port: 9902
   undertow:
     port: 8002
 

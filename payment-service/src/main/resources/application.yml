@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: payment-service
+  cloud:
+    refresh:
+      enabled: false
+
+server:
+  port: 9904
+  undertow:
+    port: 8004
+
+camel:
+  component:
+    kafka:
+      brokers: localhost:9092
+  service:
+    lra:
+      enabled: true
+      coordinator-url: http://localhost:50000
+      local-participant-url: http://host.docker.internal:${server.undertow.port}/server

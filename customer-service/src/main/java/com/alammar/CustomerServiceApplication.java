@@ -1,14 +1,9 @@
 package com.alammar;
 
-import org.apache.camel.opentelemetry.starter.CamelOpenTelemetry;
-import org.apache.kafka.clients.producer.ProducerConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
-@EnableDiscoveryClient
-@CamelOpenTelemetry
 public class CustomerServiceApplication {
 
 	public static void main(String[] args) {
