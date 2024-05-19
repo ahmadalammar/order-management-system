@@ -1,0 +1,1 @@
+create table orders (id varchar(255) not null, itemName varchar(255), status varchar(255), primary key(id));

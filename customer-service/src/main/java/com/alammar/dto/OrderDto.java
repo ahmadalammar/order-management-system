@@ -17,5 +17,4 @@ import lombok.NoArgsConstructor;
 public class OrderDto implements Serializable {
     private String id;
     private String itemName;
-    private String status;
 }

@@ -4,7 +4,19 @@ spring:
   cloud:
     refresh:
       enabled: false
-
+  datasource:
+    url: jdbc:h2:mem:orderdb;NON_KEYWORDS=order
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings.trace: false
+      settings.web-allow-others: false
 server:
   port: 9901
   undertow:

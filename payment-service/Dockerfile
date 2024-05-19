@@ -1,9 +1,3 @@
-FROM maven:3.8.4-openjdk-11-slim AS build
-# Set the working directory in the container
-WORKDIR /payment-service
-# Build the application using Maven
-RUN mvn clean package -DskipTests
-
 # the base image
 FROM amazoncorretto:17
 

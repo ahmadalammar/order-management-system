@@ -1,20 +1,19 @@
-package com.alammar.dto;
+package com.alammar.model;
 
-import java.io.Serializable;
-
-import com.fasterxml.jackson.annotation.JsonInclude;
-
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Entity(name = "orders")
 @Data
-@Builder
-@JsonInclude(JsonInclude.Include.NON_NULL)
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderDto implements Serializable {
+@Builder
+public class Order {
+    @Id
     private String id;
     private String itemName;
     private String status;

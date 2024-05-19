@@ -1,4 +1,4 @@
-package com.alammar.routes.payments.commands.compensation;
+package com.alammar.routes;
 
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
@@ -13,6 +13,7 @@ public class CancelPayment extends RouteBuilder {
     public void configure() throws Exception {
         from("kafka:cancelPayment?brokers=localhost:9092")
             .routeId("CancelPayment")
+            .log("canceling payment route ${body}")
             .process(exchange -> {
                 log.warn("proceed cancel payment......");
             })

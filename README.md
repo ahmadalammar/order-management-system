@@ -16,3 +16,11 @@ This is just a show case on how to use apache camel with saga in microservices.
 * Run `discovery-server`, `customer-service`, `gateway-service`, `order-service`
 
 * Run simple API test by calling `http://localhost:9902/api/order`
+```
+curl --location 'http://localhost:9901/api/v1/order' \
+--header 'Content-Type: application/json' \
+--data '{
+    "id":"123",
+    "itemName": "new item"
+}'
+```
