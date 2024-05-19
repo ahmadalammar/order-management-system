@@ -1,7 +1,7 @@
 # Orders Managment Microservices
 
 ## Intro
-In this example we will design a simple event-driven distrbuted system that simulate order managment system using spring-cloud, spring-native, apache-camel and saga design pattern.
+In this example we will design a simple event-driven distrbuted system that simulate order managment system using springboot, apache-camel and saga design pattern.
 This is just a show case on how to use apache camel with saga in microservices.
 
 ## System design
@@ -9,13 +9,13 @@ This is just a show case on how to use apache camel with saga in microservices.
 
 
 ## System Install
-* Start management servers
+* Start management servers (kafka-server and LRA coordinator)
   `cd management`
   `docker-compose up -d`
 
-* Run `discovery-server`, `customer-service`, `gateway-service`, `order-service`
+* Run `order-service`, `customer-service`, `payment-service`.
 
-* Run simple API test by calling `http://localhost:9902/api/order`
+* Create a new order :
 ```
 curl --location 'http://localhost:9901/api/v1/order' \
 --header 'Content-Type: application/json' \
@@ -24,3 +24,9 @@ curl --location 'http://localhost:9901/api/v1/order' \
     "itemName": "new item"
 }'
 ```
+* Get Order details :
+```
+curl --location 'http://localhost:9901/api/v1/order/123'
+```
+## Step-by-step implementation can be found here:
+https://medium.com/@ahmadalammar/developing-order-management-system-oms-using-spring-apache-camel-and-saga-pattern-part-2-aba83bc12a65
